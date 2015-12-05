@@ -8,6 +8,7 @@ package topic_1_7;
 //It may starts with $, letter or underscore(_)
 //After first character next ones can be any of the previously mentioned, further
 //numbers and dot (.)
+//The final name must NOT be a Java keyword.
 
 //compile error: Incorrect package
 //package topic_1_6;
