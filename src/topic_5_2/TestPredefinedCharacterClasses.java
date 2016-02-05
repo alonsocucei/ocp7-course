@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 public class TestPredefinedCharacterClasses {
     public static void main(String[] args) {
         String target = "15 38 next $43_22 ";
-        String regex_d = "\\w";
+        String regex_d = "\\W";
         
         Pattern pattern = Pattern.compile(regex_d);
         Matcher matcher = pattern.matcher(target);

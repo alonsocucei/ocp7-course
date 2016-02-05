@@ -9,8 +9,11 @@ import java.util.regex.Pattern;
  */
 public class TestBoundaries {
     public static void main(String[] args) {
-        String target = "uno once veintiuno";
-        String regex = "uno";
+//        String target = "uno once veintiuno";
+//        String regex = "\\Buno";
+        
+        String target = "anita lava la tina";
+        String regex = "(\\B|\\b)[an]{2}(\\B|\\b)";
         
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(target);

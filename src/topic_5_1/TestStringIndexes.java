@@ -10,8 +10,10 @@ public class TestStringIndexes {
         
         System.out.println(sentence.indexOf('t'));
         System.out.println(sentence.indexOf('t', -10));
+        System.out.println(sentence.indexOf('t', 9));
         System.out.println(sentence.lastIndexOf('7'));
         System.out.println(sentence.lastIndexOf('7', 100));
+        System.out.println(sentence.lastIndexOf('7', 20));
     }
 }
 

@@ -17,7 +17,8 @@ import java.util.regex.Pattern;
 public class TestQuantifiers {
     public static void main(String[] args) {
         String target = "uno once veintiuno un";
-        String regex = "uno";
+//        String regex = "(uno)*";
+        String regex = "un.+";
         
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(target);

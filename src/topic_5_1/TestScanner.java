@@ -1,7 +1,5 @@
 package topic_5_1;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -13,12 +11,15 @@ public class TestScanner {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner("the sum of 3 plus 2.4 and 5.2 is 8.6");
-
+        scanner.useDelimiter("\\.");
+        
         while (scanner.hasNext()) {
             if (scanner.hasNextInt()) {
                 System.out.println(scanner.nextInt());
-            } else {
-                scanner.next();
+            } else if(scanner.hasNextFloat()) {
+                System.out.println(scanner.nextFloat());
+            }else {
+                System.out.println(scanner.next());
             }
         }
         

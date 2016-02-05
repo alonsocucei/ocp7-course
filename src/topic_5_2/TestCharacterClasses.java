@@ -22,7 +22,9 @@ public class TestCharacterClasses {
         //negation
         String regexNegation = "[^dn]ine";
         
-        Pattern pattern = Pattern.compile(regexNegation);
+        String twoCharsRegex = " [a-zA-Z]{2} ";
+        
+        Pattern pattern = Pattern.compile(twoCharsRegex);
         Matcher matcher = pattern.matcher(target);
         
         while (matcher.find()) {

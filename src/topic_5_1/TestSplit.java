@@ -10,6 +10,7 @@ public class TestSplit {
     public static void main(String[] args) {
         String names = "Marco,Julio";
         
+//        String [] namesArray = names.split("");
         String [] namesArray = names.split(",");
         System.out.println(Arrays.toString(namesArray));
     }
@@ -17,5 +18,5 @@ public class TestSplit {
 
 /**
  * To check:
- * - What's the default regex if none is passes as parameter?
+ * - What's the default regex if none is passed as parameter?
  */

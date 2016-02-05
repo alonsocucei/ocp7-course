@@ -11,6 +11,9 @@ public class TestStringContent {
         System.out.println(content.contains("2 Hours"));
         System.out.println(content.substring(0));
         System.out.println(content.substring(content.length()));
+        System.out.println(content.substring(0, 6));
+        System.out.println(content.substring(7, 12));
+//        System.out.println(content.charAt(content.length()));
     }
 }
 
