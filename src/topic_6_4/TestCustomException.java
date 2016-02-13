@@ -7,13 +7,18 @@ package topic_6_4;
  * exception that fits your needs.
  */
 public class TestCustomException {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 //        throw new CustomException();
-//        throw new CustomException("message");
+        throw new CustomException("message");
     }
 }
 
 class CustomException extends Exception {
+    CustomException(String message) {
+        super(message);
+    }
+    
+    CustomException(){}
 }
 
 /**

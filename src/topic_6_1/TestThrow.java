@@ -3,15 +3,15 @@ package topic_6_1;
 /**
  * - throw keyword is used to actually throw Exceptions.
  * - Line reported will be where the Exception instance is created.
- * - When used to throw a checked Exception then the method must handle it, re-throw it
- * or declare it.
+ * - When used to throw a checked Exception then the method must handle it or declare it.
  */
 public class TestThrow {
 
     public static int division(int dividend, int divider) {
         
         if (divider == 0) {
-            throw new ArithmeticException();
+            ArithmeticException e = new ArithmeticException("/ by zero");
+            throw e;
         }
         
         return dividend / divider;
@@ -20,7 +20,7 @@ public class TestThrow {
     public static void main(String args[]) {
         System.out.println(division(3, 2));
 //        System.out.println(3/0);
-//        System.out.println(division(3, 0));
+        System.out.println(division(3, 0));
     }
 }
 

@@ -15,7 +15,7 @@ public class TestMultiCatch {
             throwerMethod();
         } catch (IOException e) {
         } catch (SQLException e) {
-        }catch (Exception e) {
+        } catch (Exception e) {
         }
         
         //new approach

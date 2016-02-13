@@ -1,5 +1,9 @@
 package topic_6_1;
 
+import java.io.EOFException;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 /**
  * - throws keyword is used to declare Exceptions.
  * - Exceptions declared can be of any type (checked or unchecked). 
@@ -9,9 +13,9 @@ package topic_6_1;
  * method, or re-thrown.
  */
 public class TestThrows {
-    public static void main(String[] args) {
-//        handleException();
-//        rethrowException();
+    public static void main(String[] args) throws Throwable {
+        handleException();
+        rethrowException();
     }
     
     public static void handleException() throws Exception {
@@ -26,6 +30,13 @@ public class TestThrows {
     public static void rethrowException() throws Exception {
         handleException();
     }
+    
+    public void testSuper() throws IOException {}
+}
+
+class T2 extends TestThrows {
+    public void testSuper() throws FileNotFoundException, EOFException, 
+            NullPointerException, ClassCastException, IndexOutOfBoundsException {}
 }
 
 /**

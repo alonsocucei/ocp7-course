@@ -1,5 +1,6 @@
 package topic_6_3;
 
+import java.io.FileReader;
 import java.io.PrintStream;
 
 /**
@@ -10,8 +11,23 @@ import java.io.PrintStream;
  */
 public class TestTryWithResources {
     public static void main(String[] args) {
-        try (PrintStream ps = new PrintStream(System.out)) {
+        try (PrintStream ps = new PrintStream(System.out);
+                FileReader fr = new FileReader("");
+                MyResource mr = new MyResource();
+                MyResource mr2 = new MyResource()) {
+            
+            System.out.println("fin");
+        } catch(Exception e) {
+//            System.err.println("exception");
+            System.err.println(e.getMessage());
         }
+    }
+}
+
+class MyResource implements AutoCloseable {
+    public void close() throws Exception {
+        System.out.println("closing");
+        throw new Exception("My Resource");
     }
 }
 

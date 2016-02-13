@@ -12,6 +12,7 @@ public class TestFinally {
         } catch (Exception e) {
             //empty catch block
 //            return;
+//            System.exit(0);
         } finally {
             System.out.println("first finally block");
         }
