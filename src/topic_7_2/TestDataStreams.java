@@ -17,14 +17,23 @@ import java.io.IOException;
  */
 public class TestDataStreams {
     public static void main(String[] args) {
-        try(FileOutputStream fos = new FileOutputStream("test");
+        try(FileOutputStream fos = new FileOutputStream("test.txt");
             DataOutputStream dos = new DataOutputStream(fos);
-            FileInputStream fis = new FileInputStream("test");
+            FileInputStream fis = new FileInputStream("test.txt");
             DataInputStream dis = new DataInputStream(fis)) {
             
             dos.write(1);
             dos.writeByte(1);
+//            dos.close();
+            dos.writeBoolean(false);
+            dos.writeDouble(3.2);
+            
             System.out.println(dis.readShort());
+            System.out.println(dis.read());
+            System.out.println(dis.readDouble());
+            System.out.println(dis.read());
+//            System.out.println(dis.readInt());
+//            System.out.println(dis.readInt());
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }

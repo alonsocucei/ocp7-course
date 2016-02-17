@@ -1,9 +1,9 @@
 package topic_6_5;
 
 /**
- * - DON'T use assertions to validate arguments of a public method. - DO user
- * assertions to validate arguments of a private method. - DO use assertions to
- * validate invariant conditions (internal, control-flow or class). 
+ * - DON'T use assertions to validate arguments of a public method.
+ * - DO user assertions to validate arguments of a private method.
+ * - DO use assertions to validate invariant conditions (internal, control-flow or class). 
  * - DON'T use assertions that may cause side effects.
  */
 public class TestValidAssertionsUse {

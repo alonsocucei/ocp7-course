@@ -22,10 +22,16 @@ public class TestFileStreams {
                 
                 int bytesCounter;
                 byte [] bytesRead = new byte[200];
-                while ((bytesCounter = input.read(bytesRead, 0, bytesRead.length)) != -1) {
-                    output.write(bytesRead, 0, bytesCounter);
+//                while ((bytesCounter = input.read(bytesRead, 0, bytesRead.length)) != -1) {
+//                    output.write(bytesRead, 0, bytesCounter);
+//                }
+                
+                int b;
+                while((b = input.read()) != -1) {
+                    output.write(b);
                 }
-                System.out.printf("File %s was copied successfully to: %s", source, destiny);
+                
+                System.out.printf("File %s was copied successfully to: %s\n", source, destiny);
             } catch (IOException e) {
                 e.printStackTrace();
             }

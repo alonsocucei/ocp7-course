@@ -6,9 +6,9 @@ package topic_6_5;
  * - 'da' and 'disableassertions' options do the opposite.
  * - assertions are disabled by default.
  * - enabling/disabling can be done just to 1 class or package or select just
+ * some classes of certain packages.
  * - there are options to do the same for system assertions (API assertions):
  * 'esa', 'dsa' and the long versions: 'enablesystemassertions' and 'disablesystemassertions'
- * some classes of certain packages.
  * Example:
  *  enable assertions for a package:
  * java -ea:<package_name>... <class_name_to_execute>

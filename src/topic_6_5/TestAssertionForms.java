@@ -10,10 +10,10 @@ public class TestAssertionForms {
         int dividend = -10;
         int divider = 3;
         //simple form: assert <boolean_expression>
-        assert dividend % divider == 0;
+        assert dividend % divider == -1;
         
         //textual form: assert <boolean_expression> : <textual_expression>
-//        assert dividend % divider == 1 : dividend + " module " + divider + " is not 1";
+        assert dividend % divider == 1 : dividend + " module " + divider + " is not 1";
     }
 }
 

@@ -1,5 +1,7 @@
 package topic_6_3;
 
+import java.io.Closeable;
+
 /**
  * - A program may have suppressed exceptions when a exception is thrown inside a
  * try-with-resources statement and calling the close throws another exception.
@@ -8,15 +10,22 @@ package topic_6_3;
 public class TestSuppressedExceptions {
     public static void main(String[] args) {
         try(One o = new One();
-                Two t = new Two()) {
-        } 
+                Two t = new Two()
+                ) {
+        }
         
-//        try(Three th = new Three("1");
+        try(
+                Three th = new Three("1");
+                Three th2 = new Three("2");){
 //                Two t = new Two()) {
-//            throw new NullPointerException();
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
+            throw new NullPointerException();
+        } catch (Exception e) {
+            System.out.println(e);
+            
+            for (Throwable t: e.getSuppressed()) {
+                System.out.println(t);
+            }
+        }
     }
 }
 
@@ -32,13 +41,13 @@ class Two implements AutoCloseable {
     }
 }
 
-class Three implements AutoCloseable {
+class Three implements Closeable {
     private String id;
     public Three(String id) {this.id = id;}
     
     public void close() {
         System.out.println("Closing Three, id:" + id);
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("test: " + id);
     }
 }
 /**

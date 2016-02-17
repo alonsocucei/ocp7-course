@@ -1,6 +1,7 @@
 package topic_7_2;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * - File class can represent a file or directory.
@@ -12,7 +13,40 @@ import java.io.File;
  */
 public class TestFile {
     public static void main(String[] args) {
-        File file = new File("fileName");
+        File file = new File("build/../fileName.txt");
+        File dir = new File("dir1");
+        File dirs = new File("dir1/dir2/dir3");
+        
+        System.out.printf("is %s: %b\n", "file", file.isFile());
+        System.out.printf("is %s: %b\n", "directory", file.isDirectory());
+        
+        try {
+            System.out.printf("create %s: %b\n", "file", file.createNewFile()); //may throw an IOException
+//            System.out.printf("create %s: %b\n", "dir", dir.mkdir());  //may throw a SecurityException
+//            System.out.printf("create %s: %b\n", "dir", dirs.mkdirs());  //may throw a SecurityException
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        System.out.printf("is %s: %b\n", "file", file.isFile());
+        System.out.printf("is %s: %b\n", "directory", file.isDirectory());
+        
+        System.out.printf("rename %s %s: %b\n", "file", file.getName(), file.renameTo(new File("fileRenamed.txt")));
+        System.out.printf("delete %s %s: %b\n", "file", file.getName(), file.delete());
+        
+        try {
+            System.out.printf("absolute path: %s\ncanonical path:%s\n", file.getAbsolutePath(), file.getCanonicalPath());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        File nbprojectDir = new File("nbproject");
+        String [] dirContents = nbprojectDir.list();
+        
+        for (String dirContent : dirContents) {
+            File dirEntry = new File(nbprojectDir, dirContent);
+            System.out.printf("name: %s - type:%s\n", dirEntry.getPath(), dirEntry.isDirectory() ? "dir" : dirEntry.isFile() ? "file" : "none");
+        }
     }
 }
 

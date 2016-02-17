@@ -13,8 +13,10 @@ public class TestConsole {
     public static void main(String[] args) {
         Console cons = System.console();
         char[] passwd;
-
+        String user;
+        
         if (cons != null) {
+            user = cons.readLine("User%s", ":");
             passwd = cons.readPassword("%s", "Password:");
             cons.format("Password is: %s", Arrays.toString(passwd));
             java.util.Arrays.fill(passwd, ' ');
