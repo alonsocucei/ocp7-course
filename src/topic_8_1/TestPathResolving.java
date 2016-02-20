@@ -28,4 +28,5 @@ public class TestPathResolving {
  * - What the program will print?
  * - What happens when resolving an absolute path against another absolute path?
  * - What happens when sending null to resolve method?
+ * - How resolveSibling() method works?
  */

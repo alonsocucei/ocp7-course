@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 public class TestPathInfo {
     public static void main(String[] args) {
         Path infoPath = Paths.get("C:/Program Files/Java/jdk1.8.0_72");
+        Path infoPath2 = Paths.get("nbproject");
         int index = 1;
         
         System.out.printf("toString(): %s\n", infoPath.toString());
@@ -22,6 +23,14 @@ public class TestPathInfo {
         System.out.printf("getParent(): %s\n", infoPath.getParent());
         System.out.printf("getRoot(): %s\n", infoPath.getRoot());
         System.out.printf("subpath(%d, %d): %s\n", index, 3, infoPath.subpath(index, 3));
+        
+        System.out.println(infoPath2.toAbsolutePath());
+        try {
+            
+            System.out.println(infoPath2.toRealPath());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
@@ -30,4 +39,6 @@ public class TestPathInfo {
  * - What indexes are valid for getName() method?
  * - What indexes as valid for subpath() method?
  * - How a Path can be iterated to print all its names?
+ * - What returns getParent() method if Path is equals to root?
+ * - What's the difference between toRealPath() and toAbsolutePath() methods?
  */
