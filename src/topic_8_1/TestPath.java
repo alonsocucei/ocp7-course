@@ -1,12 +1,14 @@
 package topic_8_1;
 
 import java.io.File;
+import java.net.URI;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * - Path is the new Interface in NIO.2 that substitutes File class.
+ * - Path is the new interface in NIO.2 that substitutes File class.
+ * - Path objects are immutable.
  * - Paths is a static class which works as a factory to create Path objects.
  */
 public class TestPath {
@@ -14,10 +16,10 @@ public class TestPath {
         //Absolute paths
         Path path1 = Paths.get("D:\\temp\\file.txt");
         Path path2 = Paths.get("D:", "temp", "file.txt");
-//        Path path3 = Paths.get("D://temp//file.txt");
+        Path path3 = Paths.get("D:/temp/file.txt");
         
         System.out.printf("%s - %s\n", path1, path2);
-//        System.out.printf("%s\n", path3);
+        System.out.printf("%s\n", path3);
         
         //Relative path
         Path relativePath = Paths.get("temp", "file.txt");

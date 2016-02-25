@@ -1,9 +1,11 @@
 package topic_8_2;
 
 import java.io.IOException;
+import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 /**
  * - Files class is a static class which work is to operate on files using Path objects.
@@ -48,8 +50,7 @@ public class TestFiles {
  * To check:
  * - What directories will be deleted using Files.delete(path3)?
  * - What does the notExists() method returns?
- * - What happens when trying to execute las section of the code?
- * - What happens when trying to move a non empty directory?
+ * - What happens when trying to execute last section of the code?
  * - What happens when trying to delete a non empty directory?
  * - What happens when trying to create a directory/file already exists?
  */

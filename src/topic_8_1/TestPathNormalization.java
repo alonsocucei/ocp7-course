@@ -9,8 +9,12 @@ public class TestPathNormalization {
     public static void main(String[] args) {
         System.out.println(Paths.get("a/./b/./c").normalize());
         System.out.println(Paths.get(".path").normalize());
+        System.out.println(Paths.get("./path").normalize());
         System.out.println(Paths.get("/a/b/c/..").normalize());
         System.out.println(Paths.get("../a/b/c").normalize());
+        System.out.println(Paths.get("d/e/../a/b/c").normalize());
+        System.out.println(Paths.get("C:\\../a/b/c").normalize());
+        System.out.println(Paths.get("C:\\a/b/c/../../../../../..").normalize());
     }
 }
 

@@ -12,7 +12,7 @@ import java.nio.file.Paths;
  */
 public class TestPathInfo {
     public static void main(String[] args) {
-        Path infoPath = Paths.get("C:/Program Files/Java/jdk1.8.0_72");
+        Path infoPath = Paths.get("C:/Program Files/Java/jdk1.8.0_72/otro");
         Path infoPath2 = Paths.get("nbproject");
         int index = 1;
         
@@ -22,15 +22,26 @@ public class TestPathInfo {
         System.out.printf("getNameCount(): %s\n", infoPath.getNameCount());
         System.out.printf("getParent(): %s\n", infoPath.getParent());
         System.out.printf("getRoot(): %s\n", infoPath.getRoot());
-        System.out.printf("subpath(%d, %d): %s\n", index, 3, infoPath.subpath(index, 3));
+        System.out.printf("subpath(%d, %d): %s\n", index, 4, infoPath.subpath(index, 4));
         
         System.out.println(infoPath2.toAbsolutePath());
+        
         try {
-            
             System.out.println(infoPath2.toRealPath());
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        for (Path name: infoPath) {
+            System.out.println(name);
+        }
+        
+        Path infoPath3 = Paths.get("C:\\");
+        System.out.println(infoPath3.getParent());
+        System.out.println(infoPath3.getNameCount());
+        System.out.println(infoPath3.getFileName());
+        System.out.println(infoPath3.getRoot());
+//        System.out.println(infoPath3.subpath(0, 1)); //IllegalArgumentException
     }
 }
 

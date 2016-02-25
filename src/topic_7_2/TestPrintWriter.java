@@ -1,5 +1,8 @@
 package topic_7_2;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 /**
  * - Writes formatted characters to a Writer or File.
  * - if flushing is enabled then this will be done when calling any of println, printf or format methods.
@@ -10,6 +13,21 @@ package topic_7_2;
  */
 public class TestPrintWriter {
     public static void main(String[] args) {
+        PrintWriter printerE = new PrintWriter(System.err, true);
+        
+        try (PrintWriter printer = new PrintWriter(System.out, true);) {            
+            printer.println("texto");
+            printer.print("texto2\n");
+            printer.format("%s\n", "texto3");
+            printer.write("texto4\n");
+            printer.printf("%s\n", "texto5");
+        }
+        
+        printerE.print("texto2\n");
+        printerE.format("%s\n", "texto3");
+        printerE.write("texto4\n");
+        printerE.println("texto");
+        printerE.printf("%s\n", "texto5");
     }
 }
 

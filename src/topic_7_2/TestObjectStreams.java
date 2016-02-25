@@ -26,6 +26,8 @@ public class TestObjectStreams {
             Object o = new Object(15);
             System.out.println(o);
             oos.writeObject(o);
+//            oos.writeObject(new SuperClass()); //NotSerializableException
+//            oos.writeObject(new SubClass(5));
             Object o2 = (Object) ois.readObject();
             System.out.println(o2);
             System.out.println(o2.counter);
@@ -35,13 +37,30 @@ public class TestObjectStreams {
     }
 }
 
-class Object implements Serializable {
-    private transient int data;
-    private java.lang.Object o;
+class SuperClass {
+    //These 2 fields are not serialized, so it doesn't matter if they implement Serializable or not.
+    int superInt = 3;
+    private java.lang.Object o = new java.lang.Object() {};
+    
+//    SuperClass(int a) {} //if default constructor is commented and this one uncommented, an InvalidClassException is thrown.
+    SuperClass() {
+        System.out.println("SuperClass constructor");
+    }
+    
+    public String toString() {
+        return "superInt: " + superInt;
+    }
+}
+
+class Object extends SuperClass implements Serializable {
+    private int data;
+    private java.lang.Object o = new Serializable() {};
     static int counter = 0;
     
     public Object(int data) {
+        System.out.println("Object constructor");
         this.data = data;
+        super.superInt = data;
         ++counter;
     }
     
@@ -50,17 +69,24 @@ class Object implements Serializable {
     }
     
     public String toString() {
-        return "data: " + data + " o: " + o;
+        return super.toString() + " data: " + data + " o: " + o;
+    }
+}
+
+class SubClass extends Object {
+    SubClass(int n) {
+        super(n);
     }
 }
 
 /**
  * To check:
  * - What's the result after compiling and running the program?
- * - What happens if transient or static modifier is added to fields?
+ * - What happens if transient or static modifier is removed from fields?
  * - How can be restored the original type of a variable after reading it?
  * - What happens if the Object variable is initialized?
  * - What happens if a field is initialized using an anonymous class?
  * - How must anonymous classes be used in order to make the code works?
  * - Why static variable prints its value?
+ * - What happens when inheritance is involved?
  */

@@ -23,14 +23,15 @@ public class TestPathRelativizing {
 
         System.out.printf("\"%s\".relativize(\"%s\"): %s\n", binDirectory, compilerBinRelative, binDirectory.relativize(compilerBinRelative));
         System.out.printf("\"%s\".relativize(\"%s\"): %s\n", compilerBinRelative, binDirectory, compilerBinRelative.relativize(binDirectory));
-//        System.out.printf("\"%s\".relativize(\"%s\"): %s\n", compilerRelative, compilerBinRelative, compilerRelative.relativize(compilerBinRelative));
-//        System.out.printf("\"%s\".relativize(\"%s\"): %s\n", compilerBinRelative, compilerRelative, compilerBinRelative.relativize(compilerRelative));
+        System.out.printf("\"%s\".relativize(\"%s\"): %s\n", compilerRelative, compilerBinRelative, compilerRelative.relativize(compilerBinRelative));
+        System.out.printf("\"%s\".relativize(\"%s\"): %s\n", compilerBinRelative, compilerRelative, compilerBinRelative.relativize(compilerRelative));
+        System.out.printf("\"%s\".relativize(\"%s\"): %s\n", javaHome, javaHome, javaHome.relativize(javaHome));
     }
 }
 
 /**
  * To check:
+ * - What happens if both paths are absolute and both are the same?
  * - What happens if compilerAbsolute is changed for compilerRelative?
  * - What will be the output when relativizing compilerRelative against compilerBinRelative and vice versa?
- * - What happens if both paths are absolute and both are the same?
  */
