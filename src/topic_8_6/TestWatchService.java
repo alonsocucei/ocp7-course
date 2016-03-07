@@ -14,7 +14,7 @@ import java.nio.file.WatchService;
  * - To get a WatchService use the newWatchService() method from FileSystem class.
  * - To register a Path to be watched use the register() method of Path interface.
  * - To wait for an event call the take() or poll() methods from WatchService.
- * - User the WatchKey interface to save the events.
+ * - Use the WatchKey interface to save the events.
  * - Finally use the WhatKey.Kind interface to check what kind of event happened.
  * - Events are declared in StandardWatchEventKinds class.
  */

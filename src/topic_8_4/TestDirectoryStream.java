@@ -23,33 +23,36 @@ public class TestDirectoryStream {
         }
         
         //filtering - option #1
-//        System.out.println("Filtering, option #1:");
-//        try (DirectoryStream<Path> stream = Files.newDirectoryStream(root, "");){
-//            for (Path path: stream) {
-//                System.out.println(path);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        System.out.println("Filtering, option #1:");
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(root, "*.sys");){
+            for (Path path: stream) {
+                System.out.println(path);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         
         //filtering - option #2
-//        System.out.println("Filtering, option #2:");
-//        DirectoryStream.Filter<Path> filter = ...
-//        try (DirectoryStream<Path> stream = Files.newDirectoryStream(root,filter)){
-//            for (Path path: stream) {
-//                System.out.println(path);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        System.out.println("Filtering, option #2:");
+        DirectoryStream.Filter<Path> filter = new DirectoryStream.Filter<Path>(){
+            public boolean accept(Path p) {
+                return p.toString().endsWith("sys");
+            }
+        };
         
-        
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(root, filter)){
+            for (Path path: stream) {
+                System.out.println(path);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
 /**
  * To check:
- * - What happens if path is a valid/invalid file?
+ * - What happens if path is an existing/not existing file?
  * - How can we filter entries to just those starting with R|S?
  * - How can the same filter be applied using the DirectoryStream.Filter interface?
  */

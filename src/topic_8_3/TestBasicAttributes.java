@@ -18,8 +18,10 @@ import java.util.Date;
  */
 public class TestBasicAttributes {
     public static void main(String[] args) {
-        Path basePath = Paths.get("C:\\Users\\jjsanche\\Desktop");
-        Path filePath = basePath.resolve(Paths.get("Curso Java.pptx"));
+        Path userHome = Paths.get(System.getProperty("user.home"));
+        Path desktopRel = Paths.get("Desktop");
+        Path desktop = userHome.resolve(desktopRel);
+        Path filePath = desktop.resolve(Paths.get("Test.7z"));
         
         BasicFileAttributes basicAttributes;
         //reading attributes

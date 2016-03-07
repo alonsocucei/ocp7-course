@@ -15,8 +15,10 @@ import java.nio.file.attribute.DosFileAttributes;
  */
 public class TestDosAttributes {
     public static void main(String[] args) {
-        Path basePath = Paths.get("C:\\Users\\jjsanche\\Desktop");
-        Path filePath = basePath.resolve(Paths.get("test.txt"));
+        Path userHome = Paths.get(System.getProperty("user.home"));
+        Path desktopRel = Paths.get("Desktop");
+        Path desktop = userHome.resolve(desktopRel);
+        Path filePath = desktop.resolve(Paths.get("test.txt"));
         
         try {
             Files.createFile(filePath);

@@ -13,36 +13,38 @@ import java.nio.file.StandardCopyOption;
  */
 public class TestCopyMoveDelete {
     public static void main(String[] args) {
-        Path desktopRel = Paths.get("Desktop");
         Path userHome = Paths.get(System.getProperty("user.home"));
+        Path desktopRel = Paths.get("Desktop");
         Path desktop = userHome.resolve(desktopRel);
         
         Path emptyFolder = desktop.resolve("empty folder");
         Path newFolder = desktop.resolve("new folder");
         
         Path source = desktop.resolve("existing.txt");
-        Path target = emptyFolder.resolve("not_existing_file.txt");
+        Path dir = desktop.resolve("not_existing_dir");
+        Path target = desktop.resolve(dir).resolve("not_existing_file.txt");
         
         System.out.printf("File: %s exists: %b\n", source, Files.exists(source));
         System.out.printf("File: %s not exists: %b\n", source, Files.notExists(source));
 
         //create files and directories
         try {
-            
+            Files.createFile(source);
+            Files.createDirectory(dir);
         } catch (Exception e) {
             e.printStackTrace();
         }
         
         //copy and move files and directories
         try {
-            
+            Files.move(source, target, StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e) {
             e.printStackTrace();
         }
         
         //delete created files and directories
         try {
-//            Files.delete(target);
+//            Files.delete(source);
 //            Files.deleteIfExists(target);
         } catch (Exception e) {
             e.printStackTrace();

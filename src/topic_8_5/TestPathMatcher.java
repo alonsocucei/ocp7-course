@@ -28,7 +28,7 @@ public class TestPathMatcher {
         String pattern1 = "*.java";
         String pattern2 = "**.java";
         String pattern3 = "*/.java";
-        String pattern4 = "*/*.java";
+        String pattern4 = "*/*/*/*/*.java";
         
         System.out.printf("%s matches %s: %b\n", testPath, pattern1, match(testPath, pattern1));
         System.out.printf("%s matches %s: %b\n", testPath, pattern2, match(testPath, pattern2));
@@ -49,6 +49,6 @@ public class TestPathMatcher {
  * - What's the difference between using a single * or double ** when using glob syntax?
  * - Using glob syntax what would be the equivalent to . in regex?
  * - Using glob syntax what would be the equivalent to chose between two expressions (|) in regex?
- * - What would be the pattern to list all documents with extension .doc in a Path using a PathMatcher?
+ * - What would be the pattern using a DirectoryStream to list all documents with extension .doc in a Path using a PathMatcher?
  * - What's the syntax to match special chars like: ?, *, [, ], { and }?
  */
