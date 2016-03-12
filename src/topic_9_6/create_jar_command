@@ -1,0 +1,4 @@
+Run the following command to create the jar file:
+current path must be outside topic_9_6
+
+jar -cvf ProductsProcedure.jar topic_9_6/ProductsOrderedByPriceProcedure.class
