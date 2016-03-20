@@ -34,12 +34,13 @@ public class TestSavePoints {
             int rowsInserted = statement.executeUpdate(insertQuery);
             savePoint = connection.setSavepoint("Insert product");
             
+            int rowsRemoved = statement.executeUpdate(removeQuery);
+            
             if (true) {
                 throw new SQLException("Something bad happened");
             }
             
-            int rowsRemoved = statement.executeUpdate(removeQuery);
-
+//            connection.releaseSavepoint(savePoint);
             System.out.printf("%d row(s) affected\n", rowsInserted);
             System.out.printf("%d row(s) affected\n", rowsRemoved);
             connection.commit();

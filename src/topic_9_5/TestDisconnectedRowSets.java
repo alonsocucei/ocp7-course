@@ -25,10 +25,14 @@ public class TestDisconnectedRowSets {
             rowSet.setUsername(user);
             rowSet.setPassword(pwd);
             rowSet.execute();
+            insertRow(rowSet);
+            rowSet.acceptChanges();
+            rowSet.execute();
 //            printRows(rowSet);
 //            System.out.println("Deleting a row.....");
-//            deleteRow(rowSet, 1);
-//            rowSet.acceptChanges();
+            deleteRow(rowSet, 1);
+            rowSet.acceptChanges();
+            rowSet.execute();
             printRows(rowSet);
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -39,12 +43,12 @@ public class TestDisconnectedRowSets {
         rowSet.moveToInsertRow();
         rowSet.updateInt("PRODUCT_ID", 1);
         rowSet.updateInt("MANUFACTURER_ID", 19986982);
-        rowSet.updateInt("QUANTITY_ON_HAND", 10);
         rowSet.updateString("PRODUCT_CODE", "SW");
-        rowSet.updateString("DESCRIPTION", "Java Certification Course Software");
         rowSet.updateDouble("PURCHASE_COST", 110.5);
+        rowSet.updateInt("QUANTITY_ON_HAND", 10);
         rowSet.updateDouble("MARKUP", 10.5);
-        rowSet.updateBoolean("AVAILABLE", true);
+        rowSet.updateString("AVAILABLE", "TRUE");
+        rowSet.updateString("DESCRIPTION", "Java Certification Course Software");
         rowSet.insertRow();
         rowSet.moveToCurrentRow();
     }

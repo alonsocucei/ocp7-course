@@ -8,7 +8,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 /**
- * - Use Callable interface to execute functions or stored procedures of functions.
+ * - Use CallableStatement interface to execute functions or stored procedures.
  */
 public class TestCallableStatement {
     public static void main(String[] args) {
@@ -19,10 +19,8 @@ public class TestCallableStatement {
         
         try(Connection connection = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", user, pwd);
                 CallableStatement statement = connection.prepareCall(storedProcedure);) {
-            
 //            statement.setInt(1, 900);
             statement.setString(1, "%Speakers%");
-            
             ResultSet resultSet = statement.executeQuery();
             ResultSetMetaData resultMeta = resultSet.getMetaData();
             for (int i = 1; i <= resultMeta.getColumnCount(); i ++) {

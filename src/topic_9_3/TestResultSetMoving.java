@@ -25,8 +25,8 @@ public class TestResultSetMoving {
         String query = "SELECT * FROM PRODUCT";
         
         try(Connection connection = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", user, pwd);
-                Statement statement = connection.createStatement();
-//                Statement statement = connection.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+//                Statement statement = connection.createStatement();
+                Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 ResultSet resultSet = statement.executeQuery(query)) {
             
             ResultSetMetaData resultMeta = resultSet.getMetaData();
@@ -35,7 +35,12 @@ public class TestResultSetMoving {
             }
             
             System.out.println();
-
+//            resultSet.last();
+//            resultSet.deleteRow();
+            
+            System.out.println(resultSet.getRow());
+            System.out.println(resultSet.isBeforeFirst());
+            
             while (resultSet.next()) {
                 for (int i = 1; i <= resultMeta.getColumnCount(); i ++) {
                     System.out.printf("%" + resultMeta.getColumnName(i).length() + "s\t", resultSet.getString(i));
@@ -43,6 +48,7 @@ public class TestResultSetMoving {
                 
                 System.out.println();
             }
+            
         } catch (SQLException sqle) {
             sqle.printStackTrace();
         }

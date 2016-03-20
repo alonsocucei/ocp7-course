@@ -21,10 +21,10 @@ public class TestExecuteUpdates {
         try(Connection connection = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", user, pwd);
                 Statement statement = connection.createStatement();) {
             int rowsUpdated = statement.executeUpdate(insertQuery);
-            System.out.printf("%d rows added\n", rowsUpdated);
+            System.out.printf("%d row(s) added\n", rowsUpdated);
             
-            rowsUpdated = statement.executeUpdate(removeQuery);
-            System.out.printf("%d rows removed\n", rowsUpdated);
+//            int rowsUpdated = statement.executeUpdate(removeQuery);
+//            System.out.printf("%d row(s) removed\n", rowsUpdated);
         } catch (SQLException sqle) {
             sqle.printStackTrace();
         }

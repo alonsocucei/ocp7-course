@@ -21,17 +21,17 @@ public class TestDatabaseConnection {
 //        }
         
         //URL syntax:
-        //jdbc:<subprotocol>:<subname>:/<host>:<port>/<db>?<propertie>=<value>
+        //jdbc:<subprotocol>:<subname>:/<host>:<port>/<db>?<property>=<value>
         
         String user = "app";
         String pwd = "app";
-        try(Connection connection = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", user, pwd)) {
-//            Connection connection = DriverManager.getConnection("jdbc:derby:/localhost:1527/sample?user=" + user + "&password=" + pwd);
+        try(Connection connection = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", user, pwd)){
+//            Connection connection = DriverManager.getConnection("jdbc:derby://localhost:1527/sample?user=" + user + "&password=" + pwd);
             
 //            Properties properties = new Properties();
 //            properties.put("user", user);
 //            properties.put("password", pwd);
-//            Connection connection = DriverManager.getConnection("jdbc:derby:/localhost:1527/sample", properties);
+//            Connection connection = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", properties);
             
         } catch (SQLException e) {
             e.printStackTrace();

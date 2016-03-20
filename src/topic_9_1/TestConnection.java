@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * to get info from the connection.
  */
 public class TestConnection {
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws SQLException {
         Connection connection = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app");
         DatabaseMetaData metadata = connection.getMetaData();
         

@@ -39,7 +39,7 @@ public class TestTransaction {
 
 /**
  * To check:
- * - When a transaction is started? - How a transactions is committed
- * to the database? 
+ * - When a transaction is started?
+ * - How a transactions is committed to the database? 
  * - What happens if commit method is not called?
  */

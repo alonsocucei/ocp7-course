@@ -28,14 +28,13 @@ public class TestExecute {
             
             if (resultSetAvailable) {
                 ResultSet resultSet = statement.getResultSet();
-                
+//                System.out.println(statement.getUpdateCount());
                 while (resultSet.next()) {
                     System.out.printf("%s\n", resultSet.getString("DESCRIPTION"));
                 }
-                
-                statement.close();
             } else {
-                System.out.printf("%d rows updated\n", statement.getUpdateCount());
+                System.out.printf("%d row(s) updated\n", statement.getUpdateCount());
+                System.out.println(statement.getResultSet());
             }
         } catch (SQLException sqle) {
             sqle.printStackTrace();

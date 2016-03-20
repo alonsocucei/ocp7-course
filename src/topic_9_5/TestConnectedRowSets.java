@@ -9,8 +9,9 @@ import javax.sql.rowset.RowSetProvider;
 /**
  * - A RowSet replaces the use of Connection, Statement and ResultSet interfaces. 
  * - RowSets follow JavaBeans naming conventions. 
- * - There are 2 types: connected and disconnected. - JdbcRowSet is an implementation of
- * connected RowSet. - RowSet adds methods for those operations that modify the
+ * - There are 2 types: connected and disconnected.
+ * - JdbcRowSet is an implementation of connected RowSet. 
+ * - RowSet adds methods for those operations that modify the
  * tables: updateRow(), insertRow(), deleteRow(), moveToInsertRow()
  */
 public class TestConnectedRowSets {
@@ -19,6 +20,7 @@ public class TestConnectedRowSets {
         String user = "app";
         String pwd = "app";
         String query = "SELECT * FROM PRODUCT";
+//        String query = "DELETE FROM PRODUCT WHERE PRODUCT_ID = 1";
 
         try (JdbcRowSet rowSet = RowSetProvider.newFactory().createJdbcRowSet()) {
             rowSet.setCommand(query);
@@ -29,7 +31,8 @@ public class TestConnectedRowSets {
             printRows(rowSet);
 //            System.out.println("Inserting a row.....");
 //            insertRow(rowSet);
-//            rowSet.execute();
+            rowSet.execute();
+            printRows(rowSet);
 //            printRows(rowSet);
         } catch (SQLException sqle) {
             sqle.printStackTrace();
