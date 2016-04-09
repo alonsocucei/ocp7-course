@@ -10,13 +10,13 @@ package topic_10_2;
 public class TestPriorities {
     public static void main(String[] args) {
         PrintYieldNumbers pyn = new PrintYieldNumbers();
-        Thread t1 = new Thread(pyn);
-        Thread t2 = new Thread(pyn);
-        Thread t3 = new Thread(pyn);
+        Thread t1 = new Thread(pyn, "T1");
+        Thread t2 = new Thread(pyn, "T2");
+        Thread t3 = new Thread(pyn, "T3");
         Thread mainThread = Thread.currentThread();
         
-//        pyn.setPrimaryThread(mainThread);
-//        pyn.setDependentThread(t2);
+        pyn.setPrimaryThread(mainThread);
+        pyn.setDependentThread(t2);
         
         t1.start();
         t2.start();
@@ -34,13 +34,13 @@ class PrintYieldNumbers implements Runnable {
     private Thread dependentThread;
     
     public void run() {
-//        if (Thread.currentThread() == dependentThread) {
-//            try {
-//                primaryThread.join();
-//            } catch (InterruptedException ex) {
-//                ex.printStackTrace();
-//            }
-//        }
+        if (Thread.currentThread() == dependentThread) {
+            try {
+                primaryThread.join();
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        }
         
         for (int i = 1; i <= 10; i ++) {
             System.out.printf("name: %s - %d\n", Thread.currentThread().getName(), i);

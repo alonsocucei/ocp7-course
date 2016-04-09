@@ -30,9 +30,16 @@ class PrintNotSynchronizedNumbers implements Runnable {
     }
     
     public void run() {
-        while (isInLimit()) {
-            print();
-            increment();
+        while (true) {
+            synchronized(this) {
+                if (!isInLimit()) {
+                    break;
+                }
+                
+                print();
+                increment();
+            }
+           
             randomSleep();
         }
     }
@@ -50,7 +57,7 @@ class PrintNotSynchronizedNumbers implements Runnable {
     }
     
     private void increment() {
-        i ++;
+            i ++;
     }
     
     private void print() {
@@ -62,7 +69,7 @@ class PrintNotSynchronizedNumbers implements Runnable {
  * To check:
  * - How the program can be fixed?
  * - Where the synchronized keyword can be applied?
- * - On what object a member method is synchronized?
+ * - On what object an instance method is synchronized?
  * - On what object a static method is synchronized?
  * - What code block is equivalent to a synchronized method?
  * - What's the disadvantage of using synchronization?

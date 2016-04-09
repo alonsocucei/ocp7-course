@@ -25,7 +25,7 @@ public class TestDeadLock {
         Thread t2 = new Thread(tl, "Thread 2");
 
         t1.start();
-//        t2.start();
+        t2.start();
     }
 }
 

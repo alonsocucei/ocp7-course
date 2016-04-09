@@ -15,10 +15,10 @@ public class TestSleeping {
         try {
             System.out.println("Sleeping main thread for 3 seconds:");
             Thread.sleep(3000);
-        } catch (Exception e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        
+
         PrintSleepyNumbers psn = new PrintSleepyNumbers();
         Thread t1 = new Thread(psn);
         Thread t2 = new Thread(psn);
