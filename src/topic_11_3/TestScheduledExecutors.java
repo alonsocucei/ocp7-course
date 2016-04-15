@@ -11,12 +11,13 @@ import java.util.concurrent.TimeUnit;
 public class TestScheduledExecutors {
 
     public static void main(String[] args) {
-        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(2);
+        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(4);
         Runnable task1 = createRunnable("task 1", 3);
         Runnable task2 = createRunnable("task 2", 3);
 
         executor.schedule(task1, 0, TimeUnit.SECONDS);
-        executor.schedule(task2, 0, TimeUnit.SECONDS);
+//        executor.scheduleWithFixedDelay(task1, 0, 1, TimeUnit.SECONDS);
+        executor.schedule(task2, 2, TimeUnit.SECONDS);
         executor.shutdown();
     }
 
@@ -29,7 +30,7 @@ public class TestScheduledExecutors {
                 while (i > 0) {
                     try {
                         Thread.sleep(1000);
-                        System.out.printf("Action: %s still %d seconds to finish\n", n, i--);
+                        System.out.printf("Thread: %s Action: %s still %d seconds to finish\n", Thread.currentThread().getName(), n, i--);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

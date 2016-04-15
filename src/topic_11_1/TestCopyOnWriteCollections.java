@@ -28,6 +28,12 @@ public class TestCopyOnWriteCollections {
 //            cal.add("n");
 //            it.remove();
         }
+
+//        for (int i = 0; i < cal.size(); i++) {
+//            System.out.printf("%s \n", cal.get(i));
+//            cal.add("n"); //infinite loop
+//            cal.remove(0); //prints only odd numbers
+//        }
         
         System.out.println(cal);
     }

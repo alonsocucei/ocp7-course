@@ -20,8 +20,8 @@ public class TestForkJoinFramework {
             data[i] = ThreadLocalRandom.current().nextInt();
         }
         
-        ForkJoinPool pool = new ForkJoinPool(2);
-        FindMaxTask finder = new FindMaxTask(data, 0, data.length - 1, data.length / 2);
+        ForkJoinPool pool = new ForkJoinPool(4);
+        FindMaxTask finder = new FindMaxTask(data, 0, data.length - 1, data.length / 32);
         System.out.printf("Max value found: %s\n", pool.invoke(finder));
 
         Instant end = Instant.now();

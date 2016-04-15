@@ -86,10 +86,10 @@ class Consumer implements Runnable {
                 } finally {
                     lock.unlock();
                 }
-
-                char consumedChar = buffer.poll();
-                System.out.printf("Consuming element: %s\n", consumedChar);
             }
+
+            char consumedChar = buffer.poll();
+            System.out.printf("Consuming element: %s\n", consumedChar);
 
             try {
                 Thread.sleep((int) (Math.random() * 1000));

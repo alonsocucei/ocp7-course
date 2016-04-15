@@ -24,7 +24,7 @@ public class TestReentrantLock {
 }
 
 class RunnableLock implements Runnable {
-    Lock lock;
+    private Lock lock;
     
     public RunnableLock(Lock lock) {
         this.lock = lock;
@@ -32,19 +32,12 @@ class RunnableLock implements Runnable {
     
     public void run() {
         try {
-            Thread.sleep((int)(Math.random() * 500));
-        } catch (Exception e) {
-        }
-        
-        try {
             System.out.printf("Thread: %s is trying to get lock\n", Thread.currentThread().getName());
             lock.lock();
             System.out.printf("Thread: %s has the lock\n", Thread.currentThread().getName());
-            Thread.sleep(5000);
-        } catch(InterruptedException ie) {
-            ie.printStackTrace();
         } finally {
             lock.unlock();
+            System.out.printf("Thread: %s has released the lock\n", Thread.currentThread().getName());
         }
     }
 }

@@ -34,7 +34,7 @@ public class TestExecutors {
                 while (i > 0) {
                     try {
                         Thread.sleep(1000);
-                        System.out.printf("Action: %s still %d seconds to finish\n", n, i--);
+                        System.out.printf("Thread: %s Action: %s still %d seconds to finish\n", Thread.currentThread().getName(), n, i--);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

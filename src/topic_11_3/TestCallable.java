@@ -13,13 +13,14 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class TestCallable {
     public static void main(String[] args) {
-        Callable callable = new MyCallable();
+        Callable<Integer> callable = new MyCallable();
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Future<Integer> future = executor.submit(callable);
         executor.shutdown();
         
         try {
             System.out.printf("future: %d\n", future.get());
+//            System.out.printf("future: %d\n", future.get(3, TimeUnit.NANOSECONDS));
             
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
@@ -42,6 +43,5 @@ class MyCallable implements Callable<Integer> {
 
 /**
  * To check:
- * - Print the name of the thread executing the call() method.
  * - What is the difference between methods shutDown() and shutDownNow()?
  */

@@ -40,7 +40,6 @@ class Producer implements Runnable {
         while (true) {
             char randomChar = (char) (Math.random() * ('z' - 'a') + 'a');
 
-
             try {
                 System.out.printf("Befor producing...: %s\n", randomChar);
                 buffer.put(randomChar);
