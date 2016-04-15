@@ -1,7 +1,6 @@
 package topic_11_4;
 
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 import java.util.concurrent.ThreadLocalRandom;
@@ -13,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class TestForkJoinFramework {
     public static void main(String[] args) {
-        Instant start = Instant.now();
+        Date start = new Date();
         int[] data = new int[1024 * 1024 * 256]; //1 GB
         
         for (int i = 0; i < data.length; i ++) {
@@ -24,9 +23,9 @@ public class TestForkJoinFramework {
         FindMaxTask finder = new FindMaxTask(data, 0, data.length - 1, data.length / 32);
         System.out.printf("Max value found: %s\n", pool.invoke(finder));
 
-        Instant end = Instant.now();
-        Instant elapsedTime = end.minus(start.toEpochMilli(), ChronoUnit.MILLIS);
-        System.out.printf("Time elapsed: %s\n", elapsedTime.toEpochMilli());
+        Date end = new Date();
+        long elapsedTime = end.getTime() - start.getTime();
+        System.out.printf("Time elapsed: %s\n", elapsedTime);
     }
 }
 
