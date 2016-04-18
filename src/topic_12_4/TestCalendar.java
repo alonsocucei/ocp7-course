@@ -12,19 +12,23 @@ import java.util.Locale;
 public class TestCalendar {
     public static void main(String[] args) {
 //        Calendar calendar = new Calendar(); //illegal
-        Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance(new Locale("es", "MX"));
         Date date = new Date();
         
+        System.out.println(calendar.get(Calendar.MINUTE));
         calendar.setTime(date);
         System.out.println(date);
         
         //Add 5 hours
-//        calendar.add(Calendar.HOUR, 5);
-//        calendar.roll(Calendar.HOUR, 5);
+//        calendar.add(Calendar.HOUR, -4);
+//        calendar.roll(Calendar.HOUR, 23);
+        calendar.roll(Calendar.HOUR, false);
+        calendar.set(Calendar.MONTH, 23);
         date = calendar.getTime();
         
         System.out.println(date);
         System.out.printf("First day of week: %s\n", calendar.getFirstDayOfWeek());
+        System.out.println(Calendar.JANUARY);
         System.out.printf("Today's day of week is: %s\n", calendar.get(Calendar.DAY_OF_WEEK));
         
     }

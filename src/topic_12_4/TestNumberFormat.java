@@ -24,7 +24,9 @@ public class TestNumberFormat {
             NumberFormat.getNumberInstance(),
             NumberFormat.getNumberInstance(locale),
             NumberFormat.getCurrencyInstance(),
-            NumberFormat.getCurrencyInstance(locale)
+            NumberFormat.getCurrencyInstance(locale),
+            NumberFormat.getIntegerInstance(),
+            NumberFormat.getPercentInstance()
         };
         
         for (NumberFormat formatter: formatters) {

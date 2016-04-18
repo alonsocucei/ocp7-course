@@ -16,8 +16,34 @@ public class TestLocaleClass {
         Locale.setDefault(Locale.GERMANY);
         System.out.println(Locale.getDefault());
         
+        Locale.setDefault(new Locale("fr", "MX"));
+        System.out.println(Locale.getDefault());
+        System.out.println(Locale.getDefault().getDisplayName());
+        
         Locale.setDefault(myLocale);
         System.out.println(Locale.getDefault());
+        
+        Locale[] locales = Locale.getAvailableLocales();
+        String[] isoCountries = Locale.getISOCountries();
+        String[] languages = Locale.getISOLanguages();
+        
+//        for(Locale locale: locales) {
+//            System.out.println(locale.getDisplayName());
+//        }
+        
+//        for (String country: isoCountries) {
+//            Locale  l = new Locale("es", country);
+//            System.out.println(l.getDisplayName(l));
+//        }
+
+        for (String language: languages) {
+            Locale  l = new Locale(language, "MX");
+            System.out.println(l.getDisplayName(l));
+        }
+        
+        System.out.println("Available locales: " + locales.length);
+        System.out.println("Available countries: " + isoCountries.length);
+        System.out.println("Available languages: " + languages.length);
     }
 }
 

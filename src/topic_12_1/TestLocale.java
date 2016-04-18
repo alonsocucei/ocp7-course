@@ -5,8 +5,9 @@ import java.util.Calendar;
 import java.util.Locale;
 
 /**
- * - The API define a locale as a specific geographical, political or cultural
- * region. - A Locale is formed of two Strings, one representing the language
+ * - The API defines a locale as a specific geographical, political or cultural
+ * region. 
+ * - A Locale instance receives as arguments two Strings, one representing the language
  * (lowercase) and the other representing the country (uppercase).
  */
 public class TestLocale {
@@ -20,7 +21,9 @@ public class TestLocale {
         Locale[] locales = {
             new Locale("es", "MX"),
             new Locale("it", "IT"),
-            new Locale("pt", "BR")
+            new Locale("pt", "BR"),
+            Locale.GERMANY,
+            new Locale("nl", "NL")
         };
 
         for (Locale locale : locales) {

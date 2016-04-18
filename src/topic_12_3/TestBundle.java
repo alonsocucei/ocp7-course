@@ -11,10 +11,11 @@ import java.util.ResourceBundle;
  */
 public class TestBundle {
     public static void main(String[] args) {
-        Locale locale = new Locale("es");
+        Locale locale = new Locale("es", "PE");
+        System.out.println(Locale.getDefault());
         ResourceBundle bundle = ResourceBundle.getBundle("topic_12_2.MyResources", locale);
 
-//        System.out.println(bundle.getClass());
+        System.out.println(bundle.getClass());
 
         System.out.printf("saludo: %s\n", bundle.getString("helloKey"));
         System.out.printf("despedida: %s\n", bundle.getString("byeKey"));

@@ -15,6 +15,7 @@ public class TestDateClass {
     public static void main(String[] args) {
         Date date = new Date(); //now
         System.out.println(date);
+        System.out.println(date.getTime());
         
         //Adding 5 hours
         int fiveHours = 1000 * 60 * 60 * 5;
